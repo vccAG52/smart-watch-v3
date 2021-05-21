@@ -3,12 +3,18 @@ radio.onReceivedNumber(function (receivedNumber) {
         radio.sendNumber(8427)
     } else if (receivedNumber == 8427) {
         basic.showString("ALERT! STOLEN IDENTITY!")
+        for (let index = 0; index < 4; index++) {
+            basic.pause(100)
+            soundExpression.sad.playUntilDone()
+        }
     } else if (receivedNumber == 11638) {
+        soundExpression.giggle.play()
         basic.showString("Cipriano, Coralyn")
         basic.showString("ID# 11638")
         basic.showString("Birth Date: May 30th, 2013")
         basic.showString("Parents: Rose and Michael")
     } else {
+        soundExpression.mysterious.play()
         basic.showString("ID# " + receivedNumber + " is not a registered ID.")
     }
 })
@@ -54,12 +60,22 @@ input.onButtonPressed(Button.B, function () {
 })
 input.onGesture(Gesture.Shake, function () {
     Message = ""
+    soundExpression.sad.play()
 })
-let Received_String = ""
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    if (Received_String == "PERSON IN ROOM!") {
+        basic.showString("ALERT!")
+    }
+    basic.showString(Received_String)
+})
 let text_list: string[] = []
+let Received_String = ""
 let Message = ""
 let letter = 0
 radio.setGroup(562)
 letter = 0
 Message = ""
+Received_String = ""
 text_list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", ".", "!", "?", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "\"", "/", "#", "(", ")", "<", ",", ">", "+", "-", "=", ":", ";"]
+basic.showString("Hi, Violet!")
+soundExpression.hello.play()
