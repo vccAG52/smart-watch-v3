@@ -60,7 +60,6 @@ input.onButtonPressed(Button.B, function () {
 })
 input.onGesture(Gesture.Shake, function () {
     Message = ""
-    soundExpression.sad.play()
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     if (Received_String == "PERSON IN ROOM!") {
